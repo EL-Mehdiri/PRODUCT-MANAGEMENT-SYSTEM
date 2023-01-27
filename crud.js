@@ -9,6 +9,25 @@ let submit = document.getElementById("submit");
 let mood = "Create";
 let tmp;
 
+
+// Scroll To Top // 
+let up = document.querySelector('.top');
+
+window.onscroll = function (){
+  if(this.scrollY >= 1000){
+    up.classList.add("show");
+  }else{
+    up.classList.remove("show");
+  }
+}
+
+up.onclick = function(){
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+}
+
 //get total////
 
 function gettotal() {
@@ -75,7 +94,7 @@ submit.onclick = function () {
 
 function cleardata() {
   title.value = "";
-  price.value = "";
+  price.value = "";// M
   taxes.value = "";
   ads.value = "";
   discount.value = "";
@@ -106,7 +125,7 @@ function showdata() {
   }
 
   document.getElementById("tbody").innerHTML = table;
-  let btndelet = document.getElementById("deleteall");
+  let btndelet = document.getElementById("deleteall");// M
   if (datapro.length > 0) {
     btndelet.innerHTML = `
         <button onclick="deleteall()">Delete All (${datapro.length})</button>`;
@@ -147,7 +166,7 @@ function updatedata(i) {
   scroll({
     top: 0,
     behavior: "smooth",
-  });
+  });// M
 }
 
 // search //
@@ -204,3 +223,4 @@ function searchdata(value) {
   }
   document.getElementById("tbody").innerHTML = table;
 }
+// M
